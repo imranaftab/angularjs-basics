@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular JS Learning</title>
+		<!-- Angular JS CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<style>
+		.colorDiv
+		{
+			
+		}
+		</style>
+	</head>
+	<body>
+		<!-- Angular JS Application Starts Here -->
+		<div ng-app="imranapp"  ng-controller="appcontroller" >
+			<hr />
+				<input type="text" ng-model="mytext" style="width:400px; height:40px;font-size:1.3em;" /><br/>
+				<p ng-bind="mytext"></p>
+				<hr/>
+				I am binded to heading & Paragraph:<input type="text" ng-model="firstname" /><br/>
+				<h1 ng-bind="firstname"></h1>
+				<p> {{ firstname }} </p>
+				<hr />
+				<p>2+2= {{ 2+2 }} </p>
+				
+				<hr/>
+				<input  type="text" ng-model="boxColor" />
+				<div style="background:{{boxColor}};width:1px;color:white;padding:100px;margin-left:5px;display:inline-block;" class="colorDiv" ng-repeat="x in myarr">{{x}}</div>
+				<hr/>
+		</div>
+		<!-- End of Angular JS Application -->
+		<script>
+			var app = angular.module("imranapp",[]);
+			app.controller('appcontroller',function($scope){
+				$scope.firstname = "Imran Aftab Rana";
+				$scope.mytext = "I am two way binded with paragraph below";
+				$scope.boxColor = "green";
+				$scope.myarr = [1,2,3,4,5,6];
+				
+			});
+		</script>
+		
+		
+		
+	</body>
+</html>
